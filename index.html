@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stylish Weather App</title>
+
+  <!-- Fonts & icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css" />
+
+  <!-- sweetalert (your JS uses swal) -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <!-- App styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Decorative animated blobs -->
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+
+  <div class="app" id="parent">
+
+    <!-- header -->
+    <header class="header">
+      <div class="brand">
+        <div class="logo">☁️</div>
+        <div>
+          <h1>Weather Studio</h1>
+          <div class="tag">Beautiful • Fast • Reliable</div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <!-- Input (script listens for Enter on input-box) -->
+        <div class="search">
+          <input id="input-box" class="input-box" type="text" placeholder="Enter city name (e.g. Mumbai)" />
+          <button id="search-btn" class="btn search-btn" title="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+      </div>
+    </header>
+
+    <!-- main content -->
+    <main class="main-grid">
+      <!-- left: current -->
+      <section class="card current-card">
+        <div class="loc-row">
+          <div class="location-deatils">
+            <div class="city" id="city">—</div>
+            <div class="date" id="date">—</div>
+          </div>
+          <div class="small-tag" id="updated_on">—</div>
+        </div>
+
+        <div class="weather-body-top">
+          <div id="weather-icon" class="weather-icon"><i class="fa-solid fa-cloud-sun"></i></div>
+          <div class="temps">
+            <div class="temp" id="temp">--°C</div>
+            <div class="weather" id="weather">— <i class=""></i></div>
+            <div class="min-max" id="min-max">—</div>
+            <div id="updated_on_small" class="muted small" style="margin-top:6px;"></div>
+          </div>
+        </div>
+
+        <div class="day-details card-details">
+          <div class="basic" id="basic">Feels like — | Humidity —% <br> Pressure — mb | Wind — KMPH</div>
+        </div>
+      </section>
+
+      <!-- right: forecast and extras -->
+      <aside class="card right-card">
+        <div id="weather-body" class="forecast-placeholder">
+          <div class="placeholder">
+            <i class="fa-regular fa-cloud"></i>
+            <p>Search a city to show weather</p>
+          </div>
+        </div>
+
+        <div class="extras">
+          <div class="sun-times">
+            <div>Sunrise: <span id="sunrise">—</span></div>
+            <div>Sunset: <span id="sunset">—</span></div>
+          </div>
+
+          <div class="favorites">
+            <div class="fav-title">Favorites</div>
+            <div id="fav-list" class="fav-list">—</div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+   
+  </div>
+
+  <!-- App logic -->
+  <script src="script.js"></script>
+</body>
+</html>
